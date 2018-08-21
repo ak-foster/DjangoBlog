@@ -4,7 +4,7 @@ from django.template import loader
 from myblog.models import Post
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from myblog.serializers import UserSerializer, GroupSerializer
+from myblog.serializers import UserSerializer, GroupSerializer, PostSerializer, CategorySerializer
 
 
 def list_view(request):
@@ -38,3 +38,19 @@ class GroupViewSet(viewsets.ModelViewSet):
     """
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
+
+
+class PostViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Group.objects.all()
+    serializer_class = PostSerializer
+
+
+class CategoryViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Group.objects.all()
+    serializer_class = CategorySerializer
